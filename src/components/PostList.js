@@ -11,27 +11,40 @@ import axios from 'axios'
          }
      }
      componentDidMount(){
-         axios.get('https://jsonplaceholder.typicode.com/posts')
-           .then(response => {
-               console.log(response)
-               this.setState({posts: response.data})
-           })
-           .catch(error => {
-            console.log(error)
-           })
-
-     }
+        axios.get('https://dummyapi.io/data/api/post', {
+         headers: {
+           "app-id": "60a38125aa96dc076d0ca21b",
+         },
+       })
+          .then(response => {
+              this.setState({posts: response.data.data})
+          })
+          .catch(error => {
+           console.error(error)
+          })
+    }
+     
      
     render() {
         const { posts } = this.state
+
+        console.log(posts)
+
         return (
             <div>
                 List of Posts
-                {
-                    posts.length ?
-                    posts.map(post => <div key={post.id}>{post.title}</div> ) :
-                    null
-                }
+                {posts.length !== 0 &&  posts.map((post, index) => (
+                    <div key={index}>
+                        <h2>{post.text}</h2>
+                    </div>
+                ))}
+
+                {posts.length !== 0 &&  posts.map((post, index) => (
+                    <div key={index}>
+                        <h2>{post.id}</h2>
+                    </div>
+                ))}
+               
             </div>
         )
     }
