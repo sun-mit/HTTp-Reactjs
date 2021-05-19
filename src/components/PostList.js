@@ -32,19 +32,13 @@ import axios from 'axios'
 
         return (
             <div>
-                List of Posts
                 {posts.length !== 0 &&  posts.map((post, index) => (
                     <div key={index}>
                         <h2>{post.text}</h2>
                     </div>
                 ))}
 
-                {posts.length !== 0 &&  posts.map((post, index) => (
-                    <div key={index}>
-                        <h2>{post.id}</h2>
-                    </div>
-                ))}
-               
+                
             </div>
         )
     }

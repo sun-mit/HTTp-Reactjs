@@ -1,11 +1,14 @@
 // import logo from './logo.svg';
 import './App.css';
 import PostList from './components/PostList';
+import FetchRandomUser from "./components/FetchRandomUser";
 
 function App() {
   return (
     <div className="App">
-     <PostList/>
+    
+     <FetchRandomUser />
+     {/* <PostList/>*/}
     </div>
   );
 }
